@@ -42,7 +42,7 @@ class SecurityConfiguration {
                 .authorizeHttpRequests { authorize ->
                     authorize
                             .requestMatchers(HttpMethod.GET, "/api/products").anonymous()
-                            .requestMatchers(HttpMethod.POST, "/api/auth/login").anonymous()
+                            .requestMatchers(HttpMethod.POST, "/api/auth/login").hasRole("MANAGER")
                             .requestMatchers(HttpMethod.POST, "/api/products").hasRole("MANAGER")
                             .anyRequest().authenticated()
                 }

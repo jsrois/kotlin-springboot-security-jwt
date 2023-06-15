@@ -2,6 +2,7 @@ package net.jsrois.api.controllers
 
 import net.jsrois.api.repositories.Product
 import net.jsrois.api.repositories.ProductRepository
+import org.springframework.security.core.Authentication
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.PostMapping
 import org.springframework.web.bind.annotation.RequestBody
@@ -14,5 +15,5 @@ class ProductController(private val productRepository: ProductRepository) {
 
 
     @PostMapping("/api/products")
-    fun addProduct(@RequestBody product: Product) = productRepository.save(product)
+    fun addProduct(@RequestBody product: Product, authentication: Authentication) = productRepository.save(product)
 }

@@ -63,7 +63,7 @@ class ApiTest {
                             setBearerAuth(token!!)
                         })
 
-        val response = api.postForEntity("/api/products", newProductRequest, LoginResponse::class.java)
+        val response = api.postForEntity("/api/products", newProductRequest, Product::class.java)
         assertThat(response.statusCode, equalTo(HttpStatus.OK))
     }
 
