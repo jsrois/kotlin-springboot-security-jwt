@@ -1,6 +1,5 @@
 package net.jsrois.api
 
-import net.jsrois.api.controllers.LoginRequest
 import net.jsrois.api.controllers.LoginResponse
 import net.jsrois.api.repositories.Product
 import net.jsrois.api.repositories.ProductRepository
@@ -14,7 +13,6 @@ import org.springframework.boot.test.context.SpringBootTest.WebEnvironment.RANDO
 import org.springframework.boot.test.web.client.TestRestTemplate
 import org.springframework.http.HttpEntity
 import org.springframework.http.HttpHeaders
-import org.springframework.http.HttpRequest
 import org.springframework.http.HttpStatus
 import org.springframework.http.MediaType
 import java.util.*
