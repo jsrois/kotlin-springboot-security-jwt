@@ -8,3 +8,7 @@
 | POST   | `/api/products`      | creates a new product            | Yes (manager)  | ✅           |
 
 
+### Resources
+
+- https://github.com/spring-projects/spring-security-samples/blob/main/servlet/spring-boot/java/jwt/login/src/main/java/example/RestConfig.java
+- 
