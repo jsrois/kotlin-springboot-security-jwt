@@ -6,6 +6,7 @@ import net.jsrois.api.repositories.Product
 import net.jsrois.api.repositories.ProductRepository
 import org.hamcrest.MatcherAssert.assertThat
 import org.hamcrest.Matchers.*
+import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.test.context.SpringBootTest
@@ -26,6 +27,11 @@ class ApiTest {
 
     @Autowired
     private lateinit var repository: ProductRepository
+
+    @BeforeEach
+    fun setUp() {
+        repository.deleteAll()
+    }
 
     @Test
     fun `returns existing products`() {

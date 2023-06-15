@@ -43,7 +43,7 @@ class SecurityConfiguration {
                     authorize
                             .requestMatchers(HttpMethod.GET, "/api/products").anonymous()
                             .requestMatchers(HttpMethod.POST, "/api/auth/login").hasRole("MANAGER")
-                            .requestMatchers(HttpMethod.POST, "/api/products").hasRole("MANAGER")
+                            .requestMatchers(HttpMethod.POST, "/api/products").authenticated()
                             .anyRequest().authenticated()
                 }
                 .csrf { csrf -> csrf.disable() }
