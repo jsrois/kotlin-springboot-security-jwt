@@ -13,6 +13,7 @@ import org.springframework.boot.test.context.SpringBootTest.WebEnvironment.RANDO
 import org.springframework.boot.test.web.client.TestRestTemplate
 import org.springframework.http.HttpEntity
 import org.springframework.http.HttpHeaders
+import org.springframework.http.HttpRequest
 import org.springframework.http.HttpStatus
 import org.springframework.http.MediaType
 import java.util.*
@@ -46,8 +47,9 @@ class ApiTest {
     fun `allows authenticated users to create new products`() {
         val product = Product(id = UUID.randomUUID(), name = "ball")
 
-        val request = LoginRequest("user", "password")
-        val loginResponse = api.postForEntity("/api/auth/login", request, LoginResponse::class.java)
+        val loginResponse = api
+                .withBasicAuth("user","password")
+                .postForEntity("/api/auth/login", Unit, LoginResponse::class.java)
         val token = loginResponse.body?.token
 
         assertThat(loginResponse.statusCode, equalTo(HttpStatus.OK))
