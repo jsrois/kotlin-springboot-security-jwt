@@ -1,0 +1,16 @@
+POST http://localhost:8080/api/auth/login
+Authorization: Basic user password
+
+> {%
+    client.global.set("auth_token", response.body.token)
+%}
+
+###
+
+POST http://localhost:8080/api/products
+Content-Type: application/json
+Authorization: Bearer {{auth_token}}
+
+{ "id": "2a5fa6bf-f110-41aa-bb2c-7e92cc38fa18", "name": "some product" }
+
+
